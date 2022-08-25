@@ -5,3 +5,7 @@ input{
 .inputClassCss {
     color: red !important;
 }
+
+.errorClass {
+    color: red;
+}

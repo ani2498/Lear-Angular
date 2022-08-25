@@ -5,3 +5,51 @@
 <p>Name is</p>
 {{ name }}
 {{ email }}
+
+<select (change)="onSelectUser($event)">
+  <option value="1">Aniket</option>
+  <option value="2">Sourabh</option>
+  <option value="3">Ankit</option>
+  <option value="4">Sonu</option>
+  <option value="5">Krishna Di</option>
+</select>
+
+<!-- Add user form -->
+<form [formGroup]="userFormGroup">
+  <input placeholder="ENter user name here" formControlName="name" />
+
+  <small
+    class="errorClass"
+    *ngIf="this.userFormGroup.get('name')?.hasError('required')"
+  >
+    Name is required</small
+  >
+
+  <small
+    class="errorClass"
+    *ngIf="this.userFormGroup.get('name')?.hasError('minlength')"
+  >
+    Minimun length of name should be 5</small
+  >
+
+  <!-- <small *ngIf="userFormGroup.get('id')?.getError?.required"></small> -->
+
+  <input placeholder="ENter user id here" formControlName="id" />
+
+  <small
+    class="errorClass"
+    *ngIf="this.userFormGroup.get('id')?.hasError('required')"
+  >
+    Id is required</small
+  >
+</form>
+
+<button (click)="onAddUser()">Add User</button>
+
+<button (click)="onFetchUserList()">Fetch User List</button>
+
+<ul>
+  <li *ngFor="let user of userListData">{{ user.id }} - {{ user.name }}</li>
+</ul>
+
+<p *ngIf="userListData.length === 0">No user found</p>

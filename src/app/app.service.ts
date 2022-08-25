@@ -6,6 +6,8 @@ export class AppService {
   email!: string;
   age!: number;
 
+  userList: UserData[] = [];
+
   constructor() {}
 
   setData(data: DataResType) {
@@ -21,10 +23,23 @@ export class AppService {
       email: this.email,
     };
   }
+
+  addDataInUserList(obj: UserData) {
+    this.userList.push(obj);
+  }
+
+  getUserList(): UserData[] {
+    return this.userList;
+  }
 }
 
 export interface DataResType {
   name: string;
   age: number;
   email: string;
+}
+
+export interface UserData {
+  id: number;
+  name: string;
 }

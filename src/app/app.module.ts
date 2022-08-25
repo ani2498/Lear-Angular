@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -14,6 +14,7 @@ import { TestComponent } from './test/test.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     CommonModule,
     NgbDropdownModule,
