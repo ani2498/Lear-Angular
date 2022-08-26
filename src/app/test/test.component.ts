@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppService, UserData } from '../app.service';
+import { TestModalComponent } from '../test-modal/test-modal.component';
 
 @Component({
   selector: 'app-test',
@@ -27,10 +29,13 @@ export class TestComponent implements OnInit {
 
   passwordRegex = '[^a-zA-Z0-9]';
 
+  @ViewChild('inputEleRef') inputElement!: ElementRef;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private appService: AppService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private modalService: NgbModal
   ) {
     activatedRoute.params.subscribe({
       next: (res: any) => {
@@ -104,5 +109,22 @@ export class TestComponent implements OnInit {
     console.log(this.appService.getUserList());
 
     this.userListData = this.appService.getUserList();
+  }
+
+  printLog() {
+    console.log(this.inputElement.nativeElement.value);
+  }
+
+  openTestModal(modal: any) {
+    this.modalService.open(modal);
+  }
+
+  openTestModalComponent() {
+    const modalRef = this.modalService.open(TestModalComponent);
+    modalRef.componentInstance.name = 'ANiket Modker';
+
+    modalRef.result.then((res) => {
+      console.log('modal-returns', res);
+    });
   }
 }
