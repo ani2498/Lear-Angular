@@ -1,0 +1,8 @@
+<form [formGroup]="userFormGroup">
+  <input formControlName="name" type="text" placeholder="Enter Name" />
+  <input formControlName="age" type="text" placeholder="Enter Age" />
+  <input formControlName="city" type="text" placeholder="Enter City" />
+</form>
+
+<button *ngIf="!isEditMode" (click)="onCreateUser()">Create</button>
+<button *ngIf="isEditMode" (click)="onUpdateUser()">Update</button>

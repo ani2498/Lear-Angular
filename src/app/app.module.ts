@@ -8,9 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { TestModalComponent } from './test-modal/test-modal.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, TestModalComponent],
+  declarations: [AppComponent, TestComponent, TestModalComponent, UserListComponent, UserCreateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,0 +1,26 @@
+<app-user-create
+  [editUserSubject]="editUserEvent"
+  (userCreateEvent)="onUserCreated($event)"
+  (userUpdateEvent)="onUserUpdate($event)"
+></app-user-create>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">City</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ user?.name }}</td>
+      <td>{{ user?.age }}</td>
+      <td>{{ user?.city }}</td>
+      <td><button (click)="onEditUser(i)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
