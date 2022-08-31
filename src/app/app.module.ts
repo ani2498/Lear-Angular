@@ -10,9 +10,10 @@ import { TestComponent } from './test/test.component';
 import { TestModalComponent } from './test-modal/test-modal.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserCreateComponent } from './user-create/user-create.component';
+import { PgaeNotFoundComponent } from './pgae-not-found/pgae-not-found.component';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, TestModalComponent, UserListComponent, UserCreateComponent],
+  declarations: [AppComponent, TestComponent, TestModalComponent, UserListComponent, UserCreateComponent, PgaeNotFoundComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
